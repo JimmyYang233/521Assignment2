@@ -30,19 +30,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Cannon.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
+            <state relative-caret-position="265">
               <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+              <folding>
+                <marker date="1539889734530" expanded="false" signature="6:195" ph="..." />
+                <marker date="1539889734530" expanded="true" signature="232:1032" ph="{...}" />
+                <marker date="1539889734530" expanded="true" signature="336:340" ph="{...}" />
+                <marker date="1539889734530" expanded="true" signature="394:427" ph="{...}" />
+                <marker date="1539889734530" expanded="true" signature="447:818" ph="{...}" />
+                <marker date="1539889734530" expanded="true" signature="774:815" ph="{...}" />
+                <marker date="1539889734530" expanded="true" signature="833:1030" ph="{...}" />
+                <marker date="1539889734530" expanded="true" signature="871:1027" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/CannonBall.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
+            <state relative-caret-position="80">
               <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
               <folding>
                 <marker date="1539891527111" expanded="false" signature="6:78" ph="..." />
@@ -79,7 +89,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="380" />
     <option name="y" value="-8" />
     <option name="width" value="1026" />
@@ -143,12 +153,12 @@
       <option name="presentableId" value="Default" />
       <updated>1539833071174</updated>
       <workItem from="1539833072368" duration="4846000" />
-      <workItem from="1539890936460" duration="563000" />
+      <workItem from="1539890936460" duration="1108000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5409000" />
+    <option name="totallyTimeSpent" value="5954000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -160,7 +170,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25416037" />
@@ -207,16 +217,9 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Cannon.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/CannonBall.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
+        <state relative-caret-position="80">
           <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
           <folding>
             <marker date="1539891527111" expanded="false" signature="6:78" ph="..." />
@@ -225,6 +228,23 @@
             <marker date="1539891527111" expanded="true" signature="432:509" ph="{...}" />
             <marker date="1539891527111" expanded="true" signature="474:506" ph="{...}" />
             <marker date="1539891527111" expanded="true" signature="538:702" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Cannon.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+          <folding>
+            <marker date="1539889734530" expanded="false" signature="6:195" ph="..." />
+            <marker date="1539889734530" expanded="true" signature="232:1032" ph="{...}" />
+            <marker date="1539889734530" expanded="true" signature="336:340" ph="{...}" />
+            <marker date="1539889734530" expanded="true" signature="394:427" ph="{...}" />
+            <marker date="1539889734530" expanded="true" signature="447:818" ph="{...}" />
+            <marker date="1539889734530" expanded="true" signature="774:815" ph="{...}" />
+            <marker date="1539889734530" expanded="true" signature="833:1030" ph="{...}" />
+            <marker date="1539889734530" expanded="true" signature="871:1027" ph="{...}" />
           </folding>
         </state>
       </provider>
