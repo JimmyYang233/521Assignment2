@@ -5,7 +5,11 @@ using UnityEngine;
 public class CannonBall : MonoBehaviour
 {
 	private Rigidbody2D rb2d;
-	private float groundLevel = -1.2f;
+	private float groundLevel = -3.5f;
+	private Vector2 velocity;
+
+	public static float weight = 1f;
+	
 
 	// Use this for initialization
 	void Start ()
@@ -24,5 +28,8 @@ public class CannonBall : MonoBehaviour
 
 	private void FixedUpdate()
 	{
+	    velocity += weight*Physics2D.gravity*Time.deltaTime;
+		Vector2 deltaPosition = velocity * Time.deltaTime;
+		rb2d.velocity = rb2d.velocity+deltaPosition;
 	}
 }
