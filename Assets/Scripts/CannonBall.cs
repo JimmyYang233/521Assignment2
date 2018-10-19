@@ -8,7 +8,7 @@ public class CannonBall : MonoBehaviour
 	private float groundLevel = -3.5f;
 	private Vector2 velocity;
 
-	public static float weight = 1f;
+	public static float gravityModifier = 1f;
 	
 
 	// Use this for initialization
@@ -28,7 +28,8 @@ public class CannonBall : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-	    velocity += weight*Physics2D.gravity*Time.deltaTime;
+		float time = Time.deltaTime;
+	    velocity += gravityModifier*Physics2D.gravity*time;
 		Vector2 deltaPosition = velocity * Time.deltaTime;
 		rb2d.velocity = rb2d.velocity+deltaPosition;
 	}
