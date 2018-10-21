@@ -42,7 +42,7 @@ public class Cannon : MonoBehaviour
 		if (Input.GetMouseButtonDown(0))
 		{
 			GameObject newCannonBall = GameObject.Instantiate(cannonBall);
-			newCannonBall.GetComponent<Rigidbody2D>().velocity = -transform.right * speed;
+			newCannonBall.GetComponent<CannonBall>().AddVelocity(-transform.right * speed);
 		}
 	}
 }

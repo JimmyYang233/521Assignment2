@@ -10,7 +10,7 @@ public class MountainGenerator : MonoBehaviour
 	private float minX = -3f;
 	private float maxX = 3f;
 	private float minY = 0f;
-	private float maxY = 8f;
+	private float maxY = 20f;
 	
 
 	public GameObject dirt;
@@ -47,7 +47,7 @@ public class MountainGenerator : MonoBehaviour
 		while (currentX < maxX)
 		{
 			
-			int columHeight = 75 + noise.getNoise((int) ((currentX - minX) / dirtSize), (int) ((maxY - minY) / dirtSize)-75);
+			int columHeight = noise.getNoise((int) ((currentX - minX) / dirtSize), (int) ((maxY - minY) / dirtSize));
 			//Debug.Log(columHeight);
 			float currentY = minY;
 			while (currentY < minY+(float)(columHeight)*dirtSize)

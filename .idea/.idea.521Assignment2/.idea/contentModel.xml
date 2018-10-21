@@ -16,6 +16,7 @@
           <e p="CannonBall.cs" t="Include" />
           <e p="MountainGenerator.cs" t="Include" />
           <e p="PerlinNoise.cs" t="Include" />
+          <e p="Wind.cs" t="Include" />
         </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />
