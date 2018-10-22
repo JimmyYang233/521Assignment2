@@ -46,8 +46,7 @@ public class CannonBall : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		float time = Time.deltaTime;
-	    _gravityVelocity += gravityModifier*Physics2D.gravity*time;
+	    _gravityVelocity += gravityModifier*Physics2D.gravity*Time.deltaTime;
 		Vector2 deltaPosition = _gravityVelocity * Time.deltaTime;
 		_rb2D.velocity = _rb2D.velocity+deltaPosition;
 	}

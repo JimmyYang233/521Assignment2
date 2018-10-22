@@ -34,7 +34,7 @@ public class PerlinNoise
         {
             int chunkIndex = x/chunkSize;
             int lastIndex = ((int)(6f/pixelSize)-1)/chunkSize;
-            Debug.Log("ChunkIndex " + chunkIndex + ", LastIndex " + lastIndex);
+            //Debug.Log("ChunkIndex " + chunkIndex + ", LastIndex " + lastIndex);
             float prog = (x % chunkSize) / (chunkSize * 1f);
             //Debug.Log(chunkIndex);
             float left_random;
