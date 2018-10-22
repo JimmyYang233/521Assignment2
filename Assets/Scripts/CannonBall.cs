@@ -29,6 +29,7 @@ public class CannonBall : MonoBehaviour
 		}
 		else if (TouchedMountain())
 		{
+			/**
 			if (_alreadyTouched)
 			{
 				Debug.Log("What?");
@@ -36,11 +37,12 @@ public class CannonBall : MonoBehaviour
 			}
 			else
 			{
-				Vector2 newVelocity = new Vector2(-_rb2D.velocity.x*0.7f, -_rb2D.velocity.y*0.7f);
-				AddVelocity(newVelocity);
-				_alreadyTouched = true;
-			}
-			
+			**/
+			Vector2 newVelocity = new Vector2(-_rb2D.velocity.x * 0.7f, -_rb2D.velocity.y * 0.7f);
+			AddVelocity(newVelocity);
+			_alreadyTouched = true;
+			//}
+
 		}
 	}
 

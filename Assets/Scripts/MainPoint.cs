@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
-using Random = System.Random;
 
-public class Point : MonoBehaviour
-{
+public class MainPoint : MonoBehaviour {
+	
 	private Vector2 current;
 	private Vector2 previous;
 	private float groundLevel = -3.5f;
 	private Vector2[] pointDistances;
-	
-	
-	public GameObject[] neighborPoints;
-	public float initialAcceleration;
+
 	public float bounce;
-	public float jumpHeight;
-	public bool hasGravity;
+	public Vector2 acceleration;
+	public GameObject[] neighborPoints;
 	public bool isMainPoint;
+	public float leftWallPosition;
 	
 	
 	// Use this for initialization
@@ -25,23 +22,33 @@ public class Point : MonoBehaviour
 	{
 		current = transform.position;
 		previous = transform.position;
-		//neighborPoints = GameObject.FindGameObjectsWithTag("Point");
 		pointDistances = new Vector2[neighborPoints.Length];
 		for(int i = 0; i<neighborPoints.Length; i++)
 		{
 			pointDistances[i] = neighborPoints[i].transform.position - transform.position;
-		}	
+		}
+		Accelerate();
+		
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
 		Vector2 velocity = current - previous;
+		Vector2 gravity = Physics2D.gravity * Time.deltaTime * Time.deltaTime;
 		previous = current;
-		transform.position = current = current + velocity;
+		transform.position = current = current + velocity + gravity;
 		Constraints();
 		Stick();
-		checkCannonBall();
+
+		if (isMainPoint && transform.position.x<=leftWallPosition)
+		{
+			Debug.Log("Was here");
+			acceleration = new Vector3(1,0);
+			Accelerate();
+		}
+		
+		
 	}
 
 	private void Constraints()
@@ -54,24 +61,15 @@ public class Point : MonoBehaviour
 		}
 	}
 
-	public void Accelerate(Vector2 acceleration)
+	private void Accelerate()
 	{
 		Vector2 velocity = current - previous;
 		previous = current;
-		current = current + velocity + acceleration*Time.deltaTime;
-	}
-	
-	public void Accelerate(float X, float Y)
-	{
-		Vector2 velocity = current - previous;
-		previous = current;
-		Vector2 acceleration = new Vector2(X, Y);
 		current = current + velocity + acceleration*Time.deltaTime;
 	}
 
 	private void Stick()
 	{
-		//Debug.Log(neighborPoints.Length + "");
 		for (int i = 0; i < neighborPoints.Length; i++)
 		{
 			float dx = neighborPoints[i].transform.position.x - transform.position.x;
@@ -86,36 +84,16 @@ public class Point : MonoBehaviour
 			//float offsetY = differenceY;
 			float offsetX = dx * percent;
 			float offsetY = dy * percent;
-
+		
 			transform.position = current = current - new Vector2(offsetX/2.0f, offsetY/2.0f);
 			neighborPoints[i].GetComponent<Point>().addPosition(new Vector2(offsetX/2.0f, offsetY/2.0f));
-			
 		}
-	}
+		
 
-	
+	}
 
 	public void addPosition(Vector2 position)
 	{
 		transform.position = current = current + position;
 	}
-
-	private void checkCannonBall()
-	{
-		GameObject[] cannonBalls = GameObject.FindGameObjectsWithTag("CannonBall");
-		foreach (GameObject cannonBall in cannonBalls)
-		{
-			if (cannonBall.transform.position.x>=this.transform.position.x-0.1f&&cannonBall.transform.position.x<=this.transform.position.x+0.1f)
-			{
-				if(cannonBall.transform.position.y>=this.transform.position.y-0.1f&&cannonBall.transform.position.y<=this.transform.position.y+0.1f)
-				{
-					Debug.Log("Touch the Turkey!");
-					Vector2 acceleration = cannonBall.GetComponent<Rigidbody2D>().velocity;
-					Destroy(cannonBall);
-					Accelerate(acceleration*(float)0.7);
-				}
-			}
-		}
-	}
-
 }
