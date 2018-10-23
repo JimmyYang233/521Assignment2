@@ -23,7 +23,8 @@ public class CannonBall : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-		if (TouchedGround())
+		Debug.Log(_rb2D.velocity.x);
+		if (TouchedGround()||(_rb2D.velocity.x<=0.01&&_rb2D.velocity.x>=-0.01))
 		{
 			Destroy(gameObject);
 		}
@@ -67,9 +68,9 @@ public class CannonBall : MonoBehaviour
 			//Debug.Log("Was here");
 			if (pixel.transform.position.x>=this.transform.position.x-0.1f&&pixel.transform.position.x<=this.transform.position.x+0.1f)
 			{
-				if(pixel.transform.position.y>=this.transform.position.y-0.1f&&pixel.transform.position.y<=this.transform.position.y+0.1f)
+				if(pixel.transform.position.y>=this.transform.position.y-0.1f)
 				{
-					Debug.Log("Touch the mountain!");
+					//Debug.Log("Touch the mountain!");
 					return true;
 				}
 			}
