@@ -24,7 +24,7 @@ public class CannonBall : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
 		Debug.Log(_rb2D.velocity.x);
-		if (TouchedGround()||(_rb2D.velocity.x<=0.01&&_rb2D.velocity.x>=-0.01))
+		if (TouchedGround()||((_rb2D.velocity.x<=0.01&&_rb2D.velocity.x>=-0.01)&&(_rb2D.velocity.y<=0.01&&_rb2D.velocity.y>=-0.01)))	
 		{
 			Destroy(gameObject);
 		}
@@ -41,7 +41,6 @@ public class CannonBall : MonoBehaviour
 			**/
 			Vector2 newVelocity = new Vector2(-_rb2D.velocity.x * 0.7f, -_rb2D.velocity.y * 0.7f);
 			AddVelocity(newVelocity);
-			_alreadyTouched = true;
 			//}
 
 		}

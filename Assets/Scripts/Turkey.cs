@@ -55,6 +55,8 @@ public class Turkey : MonoBehaviour
 			time = 0f;
 			turkeyJump();
 		}
+
+		//touchedMountain();
 	}
 	
 	private void SetGravity()
@@ -68,22 +70,25 @@ public class Turkey : MonoBehaviour
 
 	private void turkeyWalk()
 	{
-		if (mainPoint.transform.position.x<=leftWallPosition)
+		if (mainPoint.transform.position.x<leftWallPosition)
 		{
+			mainPoint.transform.position = new Vector2(leftWallPosition, mainPoint.transform.position.y);
 			foreach(GameObject point in points)
 			{
 				point.GetComponent<Point>().Accelerate(2,0);
 			}	
 		}
-		
-		else if (mainPoint.transform.position.x>=rightMountainPosition)
+		/**
+		else if (mainPoint.transform.position.x>rightMountainPosition)
 		{
+			
+			mainPoint.transform.position = new Vector2(rightMountainPosition, mainPoint.transform.position.y);
 			foreach(GameObject point in points)
 			{
 				point.GetComponent<Point>().Accelerate(-2,0);
 			}	
 		}
-		
+		**/
 	}
 
 	private void checkInput()
@@ -151,5 +156,26 @@ public class Turkey : MonoBehaviour
 	{
 		yield return new WaitForSeconds(time);
 		turkeyJump();
+	}
+
+	private void touchedMountain()
+	{
+		GameObject[] pixels = GameObject.FindGameObjectsWithTag("Grass");
+		//Debug.Log(pixels.Length);
+		foreach (GameObject pixel in pixels)
+		{
+			foreach (GameObject point in points)
+			{
+				if (pixel.transform.position.x>=point.transform.position.x-0.05f&&pixel.transform.position.x<=point.transform.position.x+0.05f)
+				{
+					if(pixel.transform.position.y>=point.transform.position.y-0.1f)
+					{
+						Debug.Log("Touch the mountain!");
+						//point.GetComponent<Point>().setGroundLevel(pixel.transform.position.y);
+					}
+				}
+			}
+		}
+		
 	}
 }

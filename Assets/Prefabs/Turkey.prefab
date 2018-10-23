@@ -2622,8 +2622,6 @@ MonoBehaviour:
   - {fileID: 1409768080545728}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -2657,8 +2655,6 @@ MonoBehaviour:
   - {fileID: 1640799148441286}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -2679,8 +2675,6 @@ MonoBehaviour:
   - {fileID: 1736502357018914}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -2702,8 +2696,6 @@ MonoBehaviour:
   - {fileID: 1270047413169918}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -2738,8 +2730,6 @@ MonoBehaviour:
   - {fileID: 1736502357018914}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -2772,8 +2762,6 @@ MonoBehaviour:
   - {fileID: 1111790243426972}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -2859,8 +2847,6 @@ MonoBehaviour:
   - {fileID: 1963449922850434}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -2881,8 +2867,6 @@ MonoBehaviour:
   - {fileID: 1409768080545728}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -2905,8 +2889,6 @@ MonoBehaviour:
   - {fileID: 1130935175559578}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -2937,10 +2919,9 @@ MonoBehaviour:
   neighborPoints:
   - {fileID: 1962510835651826}
   - {fileID: 1937592989408702}
+  - {fileID: 1075751235402372}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -2963,8 +2944,6 @@ MonoBehaviour:
   - {fileID: 1409768080545728}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -3012,10 +2991,9 @@ MonoBehaviour:
   - {fileID: 1341160551990558}
   - {fileID: 1075751235402372}
   - {fileID: 1081631930668128}
+  - {fileID: 1955503213206668}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 1
   isMainPoint: 0
@@ -3049,8 +3027,6 @@ MonoBehaviour:
   - {fileID: 1963449922850434}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -3071,8 +3047,6 @@ MonoBehaviour:
   - {fileID: 1734795441062424}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -3093,8 +3067,6 @@ MonoBehaviour:
   - {fileID: 1081631930668128}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: -35
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 1
   isMainPoint: 0
@@ -3138,8 +3110,6 @@ MonoBehaviour:
   - {fileID: 1111790243426972}
   initialAcceleration: 0
   bounce: 0
-  leftWallPosition: -100000
-  rightMountainPosition: 10000000
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 1
@@ -3188,8 +3158,6 @@ MonoBehaviour:
   - {fileID: 1970245124554332}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -3211,10 +3179,9 @@ MonoBehaviour:
   - {fileID: 1962510835651826}
   - {fileID: 1546074279324696}
   - {fileID: 1640799148441286}
+  - {fileID: 1736502357018914}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -3234,8 +3201,6 @@ MonoBehaviour:
   - {fileID: 1653906980446450}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -3294,8 +3259,6 @@ MonoBehaviour:
   - {fileID: 1452894015057202}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -3344,8 +3307,6 @@ MonoBehaviour:
   - {fileID: 1962510835651826}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -3378,8 +3339,6 @@ MonoBehaviour:
   - {fileID: 1081631930668128}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -3412,8 +3371,6 @@ MonoBehaviour:
   - {fileID: 1270047413169918}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -3449,8 +3406,6 @@ MonoBehaviour:
   - {fileID: 1714350544738200}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0
@@ -3473,8 +3428,6 @@ MonoBehaviour:
   - {fileID: 1292901307159422}
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 3
   hasGravity: 0
   isMainPoint: 0

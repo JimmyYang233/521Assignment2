@@ -47,9 +47,9 @@ public class Point : MonoBehaviour
 	private void Constraints()
 	{
 		Vector2 velocity = current - previous;
-		if (transform.position.y < groundLevel)
+		if (transform.position.y < getGroundLevel())
 		{
-			current = new Vector2(transform.position.x, groundLevel);
+			current = new Vector2(transform.position.x, getGroundLevel());
 			previous = new Vector2(previous.x, velocity.y*bounce+current.y);
 		}
 	}
@@ -118,4 +118,23 @@ public class Point : MonoBehaviour
 		}
 	}
 
+
+	public float getGroundLevel()
+	{
+		GameObject[] pixels = GameObject.FindGameObjectsWithTag("Grass");
+		//Debug.Log(pixels.Length);
+		foreach (GameObject pixel in pixels)
+		{
+			if (pixel.transform.position.x>=this.transform.position.x-0.05f&&pixel.transform.position.x<=this.transform.position.x+0.05f)
+			{
+				if(pixel.transform.position.y>=this.transform.position.y-0.1f)
+				{
+					Debug.Log("Touch the mountain!");
+					return pixel.transform.position.y;
+				}
+			}
+		}
+
+		return groundLevel;
+	}
 }
