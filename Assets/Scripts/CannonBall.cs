@@ -60,7 +60,7 @@ public class CannonBall : MonoBehaviour
 
 	private bool TouchedMountain()
 	{
-		GameObject[] pixels = GameObject.FindGameObjectsWithTag("Dirt");
+		GameObject[] pixels = GameObject.FindGameObjectsWithTag("Grass");
 		//Debug.Log(pixels.Length);
 		foreach (GameObject pixel in pixels)
 		{

@@ -14,6 +14,7 @@ public class MountainGenerator : MonoBehaviour
 	
 
 	public GameObject dirt;
+	public GameObject grass;
 
 	public float dirtSize;
 
@@ -53,9 +54,13 @@ public class MountainGenerator : MonoBehaviour
 			while (currentY < minY+(float)(columHeight)*dirtSize)
 			{
 				GameObject currentDirt = Instantiate(dirt, this.transform);
+				
 				currentDirt.transform.localPosition = new Vector3(currentX, currentY, 1);
 				currentY += dirtSize;
 			}
+
+			GameObject currentGrass = Instantiate(grass, this.transform);
+			currentGrass.transform.localPosition = new Vector3(currentX, currentY, 1);
 			currentX += dirtSize;
 		}
 	}

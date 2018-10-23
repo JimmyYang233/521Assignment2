@@ -730,8 +730,6 @@ MonoBehaviour:
   neighborPoints: []
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 0
   hasGravity: 0
   isMainPoint: 0
@@ -2815,8 +2813,6 @@ MonoBehaviour:
   neighborPoints: []
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 0
   hasGravity: 0
   isMainPoint: 0
@@ -4244,8 +4240,6 @@ MonoBehaviour:
   neighborPoints: []
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 0
   hasGravity: 0
   isMainPoint: 0
@@ -5601,8 +5595,6 @@ MonoBehaviour:
   neighborPoints: []
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 0
   hasGravity: 0
   isMainPoint: 0
@@ -9278,6 +9270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dirt: {fileID: 1131793338385464, guid: a5d15540a86be084485eda488e907e44, type: 2}
+  grass: {fileID: 1167038594671822, guid: 7922e98023729284eb96c2ce7b141494, type: 2}
   dirtSize: 0.1
 --- !u!4 &1393120476
 Transform:
@@ -9290,6 +9283,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 649245945}
+  - {fileID: 2098514154}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11869,6 +11863,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1791090106
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1393120476}
+    m_Modifications:
+    - target: {fileID: 4518312677747876, guid: 7922e98023729284eb96c2ce7b141494, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518312677747876, guid: 7922e98023729284eb96c2ce7b141494, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518312677747876, guid: 7922e98023729284eb96c2ce7b141494, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518312677747876, guid: 7922e98023729284eb96c2ce7b141494, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518312677747876, guid: 7922e98023729284eb96c2ce7b141494, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518312677747876, guid: 7922e98023729284eb96c2ce7b141494, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518312677747876, guid: 7922e98023729284eb96c2ce7b141494, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518312677747876, guid: 7922e98023729284eb96c2ce7b141494, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7922e98023729284eb96c2ce7b141494, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1860832386
 GameObject:
   m_ObjectHideFlags: 0
@@ -12276,8 +12312,6 @@ MonoBehaviour:
   neighborPoints: []
   initialAcceleration: 0
   bounce: 0.8
-  leftWallPosition: 0
-  rightMountainPosition: 0
   jumpHeight: 0
   hasGravity: 0
   isMainPoint: 0
@@ -13175,6 +13209,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &2098514154 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4518312677747876, guid: 7922e98023729284eb96c2ce7b141494,
+    type: 2}
+  m_PrefabInternal: {fileID: 1791090106}
 --- !u!1 &2099885511
 GameObject:
   m_ObjectHideFlags: 0
