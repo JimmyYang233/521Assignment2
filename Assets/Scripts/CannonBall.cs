@@ -26,7 +26,7 @@ public class CannonBall : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log(_rb2D.velocity.x);
-		if (TouchedGround())	
+		if (TouchedGround()||TouchedLeftWall())	
 		{
 			Destroy(gameObject);
 		}
@@ -51,6 +51,11 @@ public class CannonBall : MonoBehaviour
 	private bool TouchedGround()
 	{
 		return (transform.position.y <= groundLevel);
+	}
+
+	private bool TouchedLeftWall()
+	{
+		return (transform.position.x <= -8.33f);
 	}
 
 	private void TouchedMountain()
