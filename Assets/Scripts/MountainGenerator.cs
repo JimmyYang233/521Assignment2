@@ -12,6 +12,8 @@ public class MountainGenerator : MonoBehaviour
 	private float minY = 0f;
 	private float maxY = 20f;
 	
+	public static float mountainHeight;
+	
 
 	public GameObject dirt;
 	public GameObject grass;
@@ -38,6 +40,7 @@ public class MountainGenerator : MonoBehaviour
 
 	private void regenerate()
 	{
+		mountainHeight = 0;
 		int childNum = transform.childCount;
 		for (int i = 0; i < childNum; i++)
 		{
@@ -49,6 +52,10 @@ public class MountainGenerator : MonoBehaviour
 		{
 			
 			int columHeight = noise.getNoise((int) ((currentX - minX) / dirtSize), (int) ((maxY - minY) / dirtSize));
+			if ((float)(columHeight) * dirtSize>=mountainHeight)
+			{
+				mountainHeight = (float) (columHeight) * dirtSize;
+			}
 			//Debug.Log(columHeight);
 			float currentY = minY;
 			while (currentY < minY+(float)(columHeight)*dirtSize)
@@ -63,5 +70,6 @@ public class MountainGenerator : MonoBehaviour
 			currentGrass.transform.localPosition = new Vector3(currentX, currentY, 1);
 			currentX += dirtSize;
 		}
+		//Debug.Log(mountainHeight);
 	}
 }

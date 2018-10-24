@@ -9,6 +9,8 @@ public class Wind : MonoBehaviour
 	public float maxW;
 	private Vector2 velocity;
 	private float windForce;
+	private float time;
+	private float period;
 	
 	
 	// Use this for initialization
@@ -16,6 +18,8 @@ public class Wind : MonoBehaviour
 	{
 		velocity = new Vector2();
 		windForce = 0;
+		time = 0f;
+		period = 0.5f;
 	}
 	
 	// Update is called once per frame
@@ -25,23 +29,37 @@ public class Wind : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		StartCoroutine(waitAndChange(0.5f));
+		time += Time.deltaTime;
+		if (time > period)
+		{
+			time = 0f;
+			newWind();
+		}
 		velocity += new Vector2(windForce, 0)*Time.deltaTime;
 		Vector2 deltaPosition = velocity * Time.deltaTime;
 		Vector3 move = Vector3.right * deltaPosition.x;
 		transform.position = transform.position + move;
 		GameObject[] cannonBalls = GameObject.FindGameObjectsWithTag("CannonBall");
-
+		
 		foreach (GameObject cannonBall in cannonBalls)
 		{
-			cannonBall.GetComponent<Rigidbody2D>().velocity += deltaPosition;
+			if (cannonBall.transform.position.y >= MountainGenerator.mountainHeight)
+			{
+				cannonBall.GetComponent<Rigidbody2D>().velocity += deltaPosition;
+			}
+			
 		}
-	}
 
-	private IEnumerator waitAndChange(float time)
-	{
-		yield return new WaitForSeconds(time);
-		newWind();
+		GameObject[] turkeyPoints = GameObject.FindGameObjectsWithTag("Point");
+
+		foreach (GameObject turkeyPoint in turkeyPoints)
+		{
+			if (turkeyPoint.transform.position.y >= MountainGenerator.mountainHeight)
+			{
+				turkeyPoint.GetComponent<Point>().Accelerate(windForce*Time.deltaTime,0);
+			}
+		}
+		
 	}
 
 	private void newWind()

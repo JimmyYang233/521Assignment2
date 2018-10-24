@@ -39,7 +39,7 @@ public class Cannon : MonoBehaviour
 
 	void shoot()
 	{
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			GameObject newCannonBall = GameObject.Instantiate(cannonBall);
 			newCannonBall.GetComponent<CannonBall>().AddVelocity(-transform.right * speed);

@@ -5,9 +5,11 @@ using UnityEngine;
 public class CannonBall : MonoBehaviour
 {
 	private Rigidbody2D _rb2D;
-	private float groundLevel = -3.5f;
+	private readonly float groundLevel = -3.5f;
 	private Vector2 _gravityVelocity;
 	private bool _alreadyTouched;
+	private float period = 0f;
+	private float time = 0f;
 
 	public static float gravityModifier = 1f;
 	
@@ -23,27 +25,20 @@ public class CannonBall : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(_rb2D.velocity.x);
-		if (TouchedGround()||((_rb2D.velocity.x<=0.01&&_rb2D.velocity.x>=-0.01)&&(_rb2D.velocity.y<=0.01&&_rb2D.velocity.y>=-0.01)))	
+		//Debug.Log(_rb2D.velocity.x);
+		if (TouchedGround())	
 		{
 			Destroy(gameObject);
 		}
-		else if (TouchedMountain())
-		{
-			/**
-			if (_alreadyTouched)
-			{
-				Debug.Log("What?");
-				Destroy(gameObject);
-			}
-			else
-			{
-			**/
-			Vector2 newVelocity = new Vector2(-_rb2D.velocity.x * 0.7f, -_rb2D.velocity.y * 0.7f);
-			AddVelocity(newVelocity);
-			//}
 
+		time += Time.deltaTime;
+		if (time >= period)
+		{
+			time = 0f;
+			period = 0f;
+			TouchedMountain();
 		}
+		
 	}
 
 	private void FixedUpdate()
@@ -58,24 +53,37 @@ public class CannonBall : MonoBehaviour
 		return (transform.position.y <= groundLevel);
 	}
 
-	private bool TouchedMountain()
+	private void TouchedMountain()
 	{
 		GameObject[] pixels = GameObject.FindGameObjectsWithTag("Grass");
 		//Debug.Log(pixels.Length);
 		foreach (GameObject pixel in pixels)
 		{
 			//Debug.Log("Was here");
-			if (pixel.transform.position.x>=this.transform.position.x-0.1f&&pixel.transform.position.x<=this.transform.position.x+0.1f)
+			if (pixel.transform.position.x>=this.transform.position.x-0.15f&&pixel.transform.position.x<=this.transform.position.x+0.15f)
 			{
-				if(pixel.transform.position.y>=this.transform.position.y-0.1f)
+				//Debug.Log(this.transform.position.y + ", " + pixel.transform.position.y);
+				if(this.transform.position.y<=pixel.transform.position.y + 0.15f)
 				{
-					//Debug.Log("Touch the mountain!");
-					return true;
+					period = 0.03f;
+					Vector2 newVelocity = new Vector2(-_rb2D.velocity.x * 0.7f, -_rb2D.velocity.y * 0.7f);
+					AddVelocity(newVelocity);
+				}
+				//if (this.transform.position.y <= pixel.transform.position.y - 0.1f)
+				//{
+					//Destroy(gameObject);
+				//}
+			}
+
+			if (this.transform.position.x <= pixel.transform.position.x + 0.08f &&
+			    this.transform.position.x >= pixel.transform.position.x - 0.08f)
+			{
+				if (this.transform.position.y <= pixel.transform.position.y)
+				{
+					Destroy(gameObject);
 				}
 			}
 		}
-		
-		return false;
 	}
 
 	public void AddVelocity(Vector2 velocity)

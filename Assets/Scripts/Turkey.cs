@@ -11,18 +11,24 @@ public class Turkey : MonoBehaviour
 	private GameObject[] feetPoints;
 
 	private List<GameObject> points;
+	
+	private float time = 0.0f;
 
-	public float jumpHeight;
+	private float period = 1f;
+
+	private float jumpHeight;
+
+	private bool alreadyTurned = false;
 
 	public float groundLevel;
 
 	public float leftWallPosition;
 
+	public float leftMountainPosition;
+
 	public float rightMountainPosition;
 
-	private float time = 0.0f;
 
-	private float period = 1f;
 	// Use this for initialization
 	void Start ()
 	{
@@ -36,16 +42,16 @@ public class Turkey : MonoBehaviour
 		{
 			if (point.transform.parent.Equals(this.transform))
 			{
-				points.Add(point);
-				
+				points.Add(point);	
 			}
 		}
+		//	Debug.Log(points.Count);
 
 		StartCoroutine(waitAndStartWalk(1f));
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+	void FixedUpdate()
+	{
 		checkInput();
 		SetGravity();
 		turkeyWalk();
@@ -56,12 +62,23 @@ public class Turkey : MonoBehaviour
 			turkeyJump();
 		}
 
+		if (mainPoint.transform.position.x >= rightMountainPosition)
+		{
+			GetComponentInParent<TurkeyGenerator>().generateTurkey();
+			Destroy(gameObject);
+		}
 		//touchedMountain();
+		jumpHeight = MountainGenerator.mountainHeight;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
 	}
 	
 	private void SetGravity()
 	{
-		Vector2 gravity = Physics2D.gravity * Time.deltaTime*2;
+		Vector2 gravity = Physics2D.gravity * Time.deltaTime*3;
 		foreach(GameObject foot in feetPoints)
 		{
 			foot.GetComponent<Point>().Accelerate(gravity);
@@ -70,25 +87,26 @@ public class Turkey : MonoBehaviour
 
 	private void turkeyWalk()
 	{
-		if (mainPoint.transform.position.x<leftWallPosition)
+		if ((mainPoint.transform.position.x<leftWallPosition))
 		{
 			mainPoint.transform.position = new Vector2(leftWallPosition, mainPoint.transform.position.y);
 			foreach(GameObject point in points)
 			{
-				point.GetComponent<Point>().Accelerate(2,0);
+				point.GetComponent<Point>().Accelerate(1,0);
+				alreadyTurned = false;
 			}	
 		}
-		/**
-		else if (mainPoint.transform.position.x>rightMountainPosition)
+		
+		else if ((mainPoint.transform.position.x>=leftMountainPosition)&& isGrounded()&&!alreadyTurned)
 		{
 			
-			mainPoint.transform.position = new Vector2(rightMountainPosition, mainPoint.transform.position.y);
 			foreach(GameObject point in points)
 			{
-				point.GetComponent<Point>().Accelerate(-2,0);
+				point.GetComponent<Point>().Accelerate(-1,0);
+				alreadyTurned = true;
 			}	
 		}
-		**/
+		
 	}
 
 	private void checkInput()
@@ -108,7 +126,7 @@ public class Turkey : MonoBehaviour
 				point.GetComponent<Point>().Accelerate(new Vector2(1, 0));
 			}
 		}
-		else if (Input.GetKeyDown(KeyCode.Space)&&isGrounded())
+		else if (Input.GetKeyDown(KeyCode.W)&&isGrounded())
 		{
 			foreach (GameObject point in points)
 			{
@@ -134,7 +152,7 @@ public class Turkey : MonoBehaviour
 	{
 		foreach (GameObject point in points)
 		{
-			if (point.transform.position.y <= groundLevel)
+			if (point.transform.position.y <= point.GetComponent<Point>().getGroundLevel()+0.2f	)
 			{
 				return true;
 			}
@@ -148,7 +166,7 @@ public class Turkey : MonoBehaviour
 		yield return new WaitForSeconds(time);
 		foreach(GameObject point in points)
 		{
-			point.GetComponent<Point>().Accelerate(-1, 0);
+			point.GetComponent<Point>().Accelerate(-0.5f, 0);
 		}
 	}
 
@@ -166,7 +184,7 @@ public class Turkey : MonoBehaviour
 		{
 			foreach (GameObject point in points)
 			{
-				if (pixel.transform.position.x>=point.transform.position.x-0.05f&&pixel.transform.position.x<=point.transform.position.x+0.05f)
+				if (pixel.transform.position.x>=point.transform.position.x-0.15f&&pixel.transform.position.x<=point.transform.position.x+0.15f)
 				{
 					if(pixel.transform.position.y>=point.transform.position.y-0.1f)
 					{

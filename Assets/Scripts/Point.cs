@@ -13,12 +13,8 @@ public class Point : MonoBehaviour
 	
 	
 	public GameObject[] neighborPoints;
-	public float initialAcceleration;
 	public float bounce;
-	public float jumpHeight;
-	public bool hasGravity;
-	public bool isMainPoint;
-	
+	public float leftMountainPosition;
 	
 	// Use this for initialization
 	void Start ()
@@ -47,10 +43,16 @@ public class Point : MonoBehaviour
 	private void Constraints()
 	{
 		Vector2 velocity = current - previous;
-		if (transform.position.y < getGroundLevel())
+		if (transform.position.y <= getGroundLevel()&&transform.position.y >= getGroundLevel()-0.3f)
 		{
 			current = new Vector2(transform.position.x, getGroundLevel());
 			previous = new Vector2(previous.x, velocity.y*bounce+current.y);
+		}
+
+		if (transform.position.y <= getGroundLevel() && transform.position.x > leftMountainPosition)
+		{
+			current = new Vector2(transform.position.x, transform.position.y);
+			previous = new Vector2(velocity.x*bounce+current.x, previous.y);
 		}
 	}
 
@@ -125,13 +127,9 @@ public class Point : MonoBehaviour
 		//Debug.Log(pixels.Length);
 		foreach (GameObject pixel in pixels)
 		{
-			if (pixel.transform.position.x>=this.transform.position.x-0.05f&&pixel.transform.position.x<=this.transform.position.x+0.05f)
+			if (pixel.transform.position.x>=this.transform.position.x-0.15f&&pixel.transform.position.x<=this.transform.position.x+0.15f)
 			{
-				if(pixel.transform.position.y>=this.transform.position.y-0.1f)
-				{
-					Debug.Log("Touch the mountain!");
-					return pixel.transform.position.y;
-				}
+				return pixel.transform.position.y;
 			}
 		}
 

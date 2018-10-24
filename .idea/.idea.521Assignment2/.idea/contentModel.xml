@@ -21,6 +21,7 @@
           <e p="PerlinNoise.cs" t="Include" />
           <e p="Point.cs" t="Include" />
           <e p="Turkey.cs" t="Include" />
+          <e p="TurkeyGenerator.cs" t="Include" />
           <e p="Wind.cs" t="Include" />
         </e>
       </e>
